@@ -1,8 +1,11 @@
-import Head from 'next/head'
+import React from 'react';
+import Head from 'next/head';
+import NavigationTop from '../components/navigation';
 
 export default function Home() {
   return (
     <div>
+      <NavigationTop />
       <Head>
         <title>Esio Nascimento</title>
       </Head>
@@ -13,5 +16,5 @@ export default function Home() {
         </h1>
       </main>
     </div>
-  )
+  );
 }
