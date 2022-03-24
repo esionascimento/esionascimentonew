@@ -2,16 +2,18 @@ import {
     PageHeader, Button, Tag, Row, Col,
 } from 'antd';
 
-import ImgPerfil from '../images/minhafoto-200x200-qualidade-baixa.jpg';
-
 import DropdownMenu from './dropDownMenu';
-import ContentImg from './contentImg';
 import Content from './content';
+import ContentInfo from './contentInfo';
 
 function Bio() {
     return (
         <Row justify="center">
-            <Col span={14}>
+            <Col
+                xs={{ span: 22 }}
+                md={{ span: 20 }}
+                lg={{ span: 18 }}
+            >
                 <PageHeader
                     title="Esio Nascimento"
                     /* className="site-page-header" */
@@ -29,17 +31,9 @@ function Bio() {
                     ]}
                     avatar={{ src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4' }}
                 >
-                    <ContentImg
-                        extraContent={(
-                            <img
-                                src={ImgPerfil.src}
-                                alt="content"
-                                width="100%"
-                            />
-                        )}
-                    >
-                        {Content}
-                    </ContentImg>
+                    <Content>
+                        {ContentInfo}
+                    </Content>
                 </PageHeader>
             </Col>
         </Row>

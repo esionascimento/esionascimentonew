@@ -1,7 +1,11 @@
-function IconLink({ src, text }) {
+import * as S from './styles';
+
+function IconLink({ src, text, href }) {
     return (
-        <a className="example-link" href="/#">
-            <img className="example-link-icon" src={src} alt={text} />
+        <a href={href}>
+            <S.SpanImg>
+                {src}
+            </S.SpanImg>
             {text}
         </a>
     );
