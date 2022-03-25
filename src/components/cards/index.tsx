@@ -11,14 +11,14 @@ function Cards() {
             <div>
                 <Row justify="center">
                     <CardInfo
-                        title="FoodNas Front-end"
-                        info="muito aojh"
-                        url="https://github.com/esionascimento/foodNas"
+                        title="Este Repositório"
+                        info="Projeto criado com NextJS"
+                        url="https://github.com/esionascimento/esionascimentonew.github.io"
                     />
                     <CardInfo
-                        title="FoodNas Back-end"
-                        info="muito aojh"
-                        url="https://github.com/esionascimento/foodNasBack"
+                        title="FoodNas"
+                        info="Gestor de Pedidos - utilizando API do Ifood"
+                        url="https://github.com/esionascimento/foodNas"
                     />
                     <CardInfo
                         title="Calculadora de Tinta"
