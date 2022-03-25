@@ -33,7 +33,7 @@ const ContentInfo = (
                 <br />
                 Front End:
                 {' '}
-                <Text mark>HTML5, CSS3, Bootstrap, JavaScript, React, Redux, Antd.</Text>
+                <Text mark>HTML5, CSS3, Bootstrap, JavaScript, React, Redux, Ant Design.</Text>
                 <br />
                 Back End:
                 {' '}
