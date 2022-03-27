@@ -18,7 +18,7 @@ function CardInfo({ title, info, url }) {
                 {info}
                 <Divider />
                 <div>
-                    <Tooltip title="Abrir repositorio">
+                    <Tooltip title="Abrir repositório">
                         <a href={url}>
                             <DashOutlined />
                         </a>
