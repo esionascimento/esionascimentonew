@@ -1,26 +1,30 @@
 import { SetStateAction, useState } from 'react';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'next-i18next';
+import { RootState } from '../../store';
 
 const { SubMenu } = Menu;
 
 function NavigationTop() {
+    const { t } = useTranslation();
     const [current, setCurrent] = useState('mail');
+    const tema = useSelector((state: RootState) => state.theme.stateTheme);
 
     const handleClick = (e: { key: SetStateAction<string>; }) => {
-        console.log('click ', e);
         setCurrent(e.key);
     };
 
     return (
-        <Menu theme="dark" onClick={() => handleClick} selectedKeys={[current]} mode="horizontal">
+        <Menu theme={tema === 'light' ? 'light' : 'dark'} onClick={() => handleClick} selectedKeys={[current]} mode="horizontal">
             <Menu.Item key="mail">
-                Inicio
+                {t('header:start')}
             </Menu.Item>
             <Menu.Item key="app" disabled>
-                Navigation Two
+                ...
             </Menu.Item>
-            <SubMenu key="SubMenu" title="Navigation Three - Submenu">
+            <SubMenu key="SubMenu" title="..." disabled>
                 <Menu.ItemGroup title="Item 1">
                     <Menu.Item key="setting:1">Option 1</Menu.Item>
                     <Menu.Item key="setting:2">Option 2</Menu.Item>
