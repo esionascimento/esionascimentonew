@@ -51,7 +51,7 @@ function Bio({ props: { locale } }) {
                     subTitle={t('home-info:my-bio')}
                     tags={<Tag color="blue">{t('home-info:profession')}</Tag>}
                     extra={[
-                        <Tooltip placement="topLeft" title={`${t('label:tooltip.theme')}`}>
+                        <Tooltip key="3" placement="topLeft" title={`${t('label:tooltip.theme')}`}>
                             <S.ButtonPageHeader
                                 key="3"
                                 onClick={handlerTheme}
@@ -61,7 +61,7 @@ function Bio({ props: { locale } }) {
                                     : t('buttons:theme.light')}
                             </S.ButtonPageHeader>
                         </Tooltip>,
-                        <Tooltip placement="topLeft" title={`${t('label:tooltip.language')}`}>
+                        <Tooltip key="2" placement="topLeft" title={`${t('label:tooltip.language')}`}>
                             <S.ButtonPageHeader
                                 key="2"
                                 onClick={handlerLanguage}
@@ -71,12 +71,12 @@ function Bio({ props: { locale } }) {
                                     : t('buttons:language.pt') }
                             </S.ButtonPageHeader>
                         </Tooltip>,
-                        <Tooltip placement="topLeft" title={`${t('label:tooltip.curriculum')}`}>
+                        <Tooltip key="1" placement="topLeft" title={`${t('label:tooltip.curriculum')}`}>
                             <S.ButtonPageHeader key="1" type="primary">
                                 <Link href="https://esionascimento.github.io/cv.html">CV</Link>
                             </S.ButtonPageHeader>
                         </Tooltip>,
-                        <Tooltip placement="topLeft" title="">
+                        <Tooltip key="0" placement="topLeft" title="">
                             <div key="0">
                                 <DropdownMenu />
                             </div>
