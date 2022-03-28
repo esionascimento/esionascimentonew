@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Row, Col } from 'antd';
+import { Row, Col, Button } from 'antd';
 
 export const SpanImg = styled.span`
     font-size: 20px;
@@ -20,4 +20,8 @@ export const ColImag = styled(Col)`
         height: 150px;
         object-fit: fill;
     }
+`;
+
+export const ButtonPageHeader = styled(Button)`
+    width: 100px;
 `;

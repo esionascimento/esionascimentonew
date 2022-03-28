@@ -5,7 +5,7 @@ export interface Theme {
 }
 
 const initialState: Theme = {
-    stateTheme: 'Light',
+    stateTheme: 'light',
 };
 
 export const themeSlice = createSlice({
@@ -13,10 +13,10 @@ export const themeSlice = createSlice({
     initialState,
     reducers: {
         increment: (state) => {
-            state.stateTheme = 'Light';
+            state.stateTheme = 'light';
         },
         decrement: (state) => {
-            state.stateTheme = 'Dark';
+            state.stateTheme = 'dark';
         },
     },
 });
