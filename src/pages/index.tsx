@@ -4,13 +4,6 @@ import NavigationTop from '../components/navigation';
 import Bio from '../components/bio';
 import Cards from '../components/cards';
 
-export const getServerSideProps = async ({ locale }) => ({
-    props: {
-        ...(await serverSideTranslations(locale, ['buttons', 'common', 'header', 'home-info', 'label'])),
-        locale,
-    },
-});
-
 export default function Home(props) {
     return (
         <>
