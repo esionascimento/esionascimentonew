@@ -11,7 +11,7 @@ function Cards() {
             }}
             >
                 <div>
-                    <Row justify="center">
+                    <Row justify="space-around">
                         <CardInfo
                             title="Este Repositório"
                             info="Projeto criado com NextJS"
