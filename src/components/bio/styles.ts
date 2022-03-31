@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { Row, Col, Button } from 'antd';
 
+export const RowBody = styled(Row)`
+`;
+
 export const SpanImg = styled.span`
     font-size: 20px;
 `;
