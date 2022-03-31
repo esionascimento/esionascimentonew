@@ -1,38 +1,25 @@
 import {
-    Card, Col, Tooltip, Divider, Avatar,
+    Card, Tooltip, Avatar,
 } from 'antd';
+import { useSelector } from 'react-redux';
 import {
     EditOutlined, EllipsisOutlined, SettingOutlined,
-    DashOutlined,
 } from '@ant-design/icons';
+import { RootState } from '../../store';
+import * as S from './styles';
 
 const { Meta } = Card;
 
 function CardInfo({ title, info, url }) {
+    const theme = useSelector((state: RootState) => state.theme.stateTheme);
+
     return (
-        <>
-            {/* <Col
-                xs={{ span: 16 }}
-                md={{ span: 10 }}
-                lg={{ span: 11 }}
-                style={{ margin: '5px' }}
-            >
-                <Card title={title}>
-                    {info}
-                    <Divider />
-                    <div>
-                        <Tooltip title="Abrir repositório">
-                            <a href={url}>
-                                <DashOutlined />
-                            </a>
-                        </Tooltip>
-                    </div>
-                </Card>
-            </Col> */}
-            <Card
-                style={{ width: 300, margin: '10px' }}
+        <div style={{ marginBottom: '10px' }}>
+            <S.AntCard
+                theme={theme}
                 cover={(
-                    <img
+                    <S.AntImg
+                        theme={theme}
                         alt="example"
                         src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
                     />
@@ -50,10 +37,10 @@ function CardInfo({ title, info, url }) {
                 <Meta
                     avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
                     title={title}
-                    description="This is the description"
+                    description={info}
                 />
-            </Card>
-        </>
+            </S.AntCard>
+        </div>
     );
 }
 
