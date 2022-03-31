@@ -1,10 +1,11 @@
 import {
-    PageHeader, Tag, Row, Col, Tooltip,
+    PageHeader, Tag, Col, Tooltip,
 } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import DropdownMenu from './dropDownMenu';
 import Content from './content';
 import ContentInfo from './contentInfo';
@@ -12,18 +13,51 @@ import { RootState } from '../../store';
 import { decrement, increment } from '../../store/Theme/Theme.store';
 import * as S from './styles';
 
+type Theme = 'light' | 'dark'
+
 function Bio({ props: { locale } }) {
     const { t } = useTranslation();
     const router = useRouter();
     const dispatch = useDispatch();
     const theme = useSelector((state: RootState) => state.theme.stateTheme);
 
-    const handlerTheme = () => {
-        if (theme === 'dark') {
-            dispatch(increment());
-        } else {
+    const handlerTheme = (th: string) => {
+        if (th === 'dark') {
             dispatch(decrement());
+        } else {
+            dispatch(increment());
         }
+    };
+
+    const stylesheets = {
+        light: 'https://cdnjs.cloudflare.com/ajax/libs/antd/4.9.4/antd.min.css',
+        dark: 'https://cdnjs.cloudflare.com/ajax/libs/antd/4.9.4/antd.dark.min.css',
+    };
+
+    const createStylesheetLink = (): HTMLLinkElement => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.id = 'antd-stylesheet';
+        document.head.appendChild(link);
+        return link;
+    };
+
+    const getStylesheetLink = (): HTMLLinkElement => document.head.querySelector('#antd-stylesheet') || createStylesheetLink();
+
+    const systemTheme = () => (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light');
+
+    const getTheme = () => (localStorage.getItem('theme') as Theme) || systemTheme();
+
+    const setTheme = (th: Theme) => {
+        localStorage.setItem('theme', th);
+        handlerTheme(th);
+        getStylesheetLink().href = stylesheets[th];
+    };
+
+    const toggleTheme = () => {
+        setTheme(getTheme() === 'dark' ? 'light' : 'dark');
     };
 
     const handlerLanguage = () => {
@@ -38,14 +72,19 @@ function Bio({ props: { locale } }) {
         }
     };
 
+    useEffect(() => {
+        setTheme(getTheme() === 'dark' ? 'dark' : 'light');
+    }, []);
+
     return (
-        <Row justify="center">
+        <S.RowBody justify="center">
             <Col
                 xs={{ span: 22 }}
                 md={{ span: 20 }}
                 lg={{ span: 18 }}
             >
                 <PageHeader
+                    style={{ color: 'white' }}
                     title="Esio Nascimento"
                     /* className="site-page-header" */
                     subTitle={t('home-info:my-bio')}
@@ -54,7 +93,7 @@ function Bio({ props: { locale } }) {
                         <Tooltip key="3" placement="topLeft" title={`${t('label:tooltip.theme')}`}>
                             <S.ButtonPageHeader
                                 key="3"
-                                onClick={handlerTheme}
+                                onClick={toggleTheme}
                             >
                                 {theme === 'light'
                                     ? t('buttons:theme.dark')
@@ -71,13 +110,17 @@ function Bio({ props: { locale } }) {
                                     : t('buttons:language.pt') }
                             </S.ButtonPageHeader>
                         </Tooltip>,
-                        <Tooltip key="1" placement="topLeft" title={`${t('label:tooltip.curriculum')}`}>
+                        <Tooltip
+                            key="1"
+                            placement="topLeft"
+                            title={`${t('label:tooltip.curriculum')}`}
+                        >
                             <S.ButtonPageHeader key="1" type="primary">
                                 <Link href="https://esionascimento.github.io/cv.html">CV</Link>
                             </S.ButtonPageHeader>
                         </Tooltip>,
-                        <Tooltip key="0" placement="topLeft" title="">
-                            <div key="0">
+                        <Tooltip style={{ color: 'white' }} key="0" placement="topLeft" title="">
+                            <div style={{ color: 'white' }} key="0">
                                 <DropdownMenu />
                             </div>
                         </Tooltip>,
@@ -89,9 +132,11 @@ function Bio({ props: { locale } }) {
                     </Content>
                 </PageHeader>
             </Col>
-        </Row>
+        </S.RowBody>
 
     );
 }
 
 export default Bio;
+
+/* https://stackblitz.com/edit/antd-dark-mode-toggle-example-xyt28h?file=App.tsx */
