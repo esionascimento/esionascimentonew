@@ -22,7 +22,7 @@ function DropdownMenu() {
         </Menu>
     );
     return (
-        <Dropdown key="more" overlay={menu} placement="bottomRight">
+        <Dropdown disabled key="more" overlay={menu} placement="bottomRight">
             <Button type="text" icon={<MoreOutlined style={{ fontSize: 20 }} />} />
         </Dropdown>
     );
