@@ -9,22 +9,17 @@ export const SpanImg = styled.span`
 `;
 
 export const RowContent = styled(Row)`
-    @media only screen and (max-width: 575px) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
+    display: flex;
 `;
 
 export const ColImag = styled(Col)`
-    @media only screen and (max-width: 575px) {
-        width: 150px;
-        height: 150px;
-        object-fit: fill;
-    }
+    display: flex;
+    justify-content: center;
 `;
 
 export const ButtonPageHeader = styled(Button)`
-    width: 100px;
+`;
+
+export const Img = styled.img`
+    color: #FFFFFF;
 `;
