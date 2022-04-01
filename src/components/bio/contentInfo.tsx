@@ -33,13 +33,13 @@ function ContentInfo() {
                     {t('home-info:skills')}
                     :
                     <br />
-                    Front End:
                     {' '}
-                    <Text mark>HTML5, CSS3, Bootstrap, JavaScript, React, Redux, Ant Design.</Text>
+                    <Text mark>HTML5, CSS3, Bootstrap, JavaScript, React, Redux, Ant Design</Text>
                     <br />
-                    Back End:
                     {' '}
-                    <Text mark>MongoDB, MySQL, NodeJS, Express.</Text>
+                    <Text mark>MongoDB, MySQL, NodeJS, Express</Text>
+                    {' '}
+                    <Text mark>Docker</Text>
                 </Paragraph>
             </div>
             <Row justify="space-around">
