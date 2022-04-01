@@ -8,7 +8,6 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import DropdownMenu from './dropDownMenu';
 import Content from './content';
-import ContentInfo from './contentInfo';
 import { RootState } from '../../store';
 import { decrement, increment } from '../../store/Theme/Theme.store';
 import * as S from './styles';
@@ -127,9 +126,7 @@ function Bio({ props: { locale } }) {
                     ]}
                     avatar={{ src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4' }}
                 >
-                    <Content>
-                        <ContentInfo />
-                    </Content>
+                    <Content />
                 </PageHeader>
             </Col>
         </S.RowBody>
