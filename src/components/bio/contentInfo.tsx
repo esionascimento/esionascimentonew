@@ -6,6 +6,7 @@ import {
     GithubOutlined, LinkedinOutlined, WhatsAppOutlined, createFromIconfontCN,
 } from '@ant-design/icons';
 import { useTranslation } from 'next-i18next';
+import { optionSkills } from './options/skills';
 import IconLink from './iconLink';
 
 const { Paragraph, Text } = Typography;
@@ -31,17 +32,18 @@ function ContentInfo() {
                 </Paragraph>
                 <Paragraph>
                     {t('home-info:skills')}
-                    :
-                    <br />
-                    {' '}
-                    <Text mark>HTML5, CSS3, Bootstrap, JavaScript, React, Redux, Ant Design</Text>
-                    <br />
-                    {' '}
-                    <Text mark>MongoDB, MySQL, NodeJS, Express</Text>
-                    {' '}
-                    <Text mark>Docker</Text>
+                    {': '}
                 </Paragraph>
             </div>
+            <Paragraph style={{ textAlign: 'justify' }}>
+                {optionSkills.map(({ index, skills }) => (
+                    <Text mark key={index} style={{ marginRight: '5px' }}>
+                        <span style={{ padding: '2px', whiteSpace: 'nowrap' }}>
+                            {skills}
+                        </span>
+                    </Text>
+                ))}
+            </Paragraph>
             <Row justify="space-around">
                 <Col flex="none">
                     <IconLink
